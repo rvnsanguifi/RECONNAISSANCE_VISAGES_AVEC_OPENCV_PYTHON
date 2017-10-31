@@ -1,0 +1,49 @@
+Notre système de reconnaissance de visage se décompose en cinq
+étapes suivant :
+- L’acquisition des données ;
+- Le prétraitement ;
+- L’extraction des caractéristiques ;
+- La classification ;
+- L'évaluation.
+
+- L'acquisition de données
+
+L'Etape d’acquisition de données consistera à détecter les visages dans les images qui
+vont constituer notre base d'apprentissage et celle de test. La technique utilisée pour
+la reconnaissance de visage sera celle de Viola et Jones [1], puis ils serviront à la
+reconnaissance.
+- Le prétraitement
+Cette étape sert d'améliorer les images avant d'en extraire des caractéristiques.
+- L’extraction des caractéristiques
+A ce niveau, nous utiliserons uniquement le descripteur LBPHF [3].
+- La classification
+
+L'étape de classification sera réalisée grâce à l'algorithme du plus proche voisin KNN.
+Nous avons utilisé Deux distances pour l’implémentation de l'algorithme KNN qui
+sont [4]:
+
+*****La distance de χ2
+*****La distance de Bhattacharyya
+
+Nous évaluerons les résultats obtenus en construisant la matrice de confusion et en
+calculant la précision du système.
+Précision = somme du nombre d'éléments bien classés/ nombre total d'éléments
+
+Implémentation et Outils utilisés
+
+Pour l’implémentation de de notre application, nous avons utilisé le
+langage de programmation python et la librairie Opencv 3.2 et Numpy sous l’IDE
+Anaconda. Nous avons utilisé le fichier ≪ haarcascade_frontalface_alt.xml ≫
+propose par Opencv pour la détection des visages puis applique l'algorithme de viola
+et jones.
+Le programme que nous avons implémenté est nommé
+reconnaissance_visage.py et pour pouvoir le compiler il faudra se placer dans le
+répertoire qui contient le code source et de lancer à partir du terminal la commande
+≪ python reconnaissance.py apprentissage.txt test.txt ≫. Dans le fichier
+apprentissage.txt, nous décrivons la base d’apprentissage contenant le chemin vers
+une image suivi de la classe associée à cette image. C’est la même chose pour le
+fichier test.txt.
+
+Quand, nous lançons la commande ≪ python reconnaissance.py
+apprentissage.txt test.txt ≫, le programme nous affiche le menu sous dessus qui
+nous permet de choisir entre la distance de Bhattacharyya et celle de Chi2.
